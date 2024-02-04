@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from wb_detector     import multi_get_data, send_error
 from parser_for_db   import wb_parser,subject_analytiks
 from logger          import json_load, json_dump

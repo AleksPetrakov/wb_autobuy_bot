@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from logger                        import new_data_add, json_load
 from db_connector                  import connect_db, get_artikul_price, update_db,do_commit,db_insert
 from multiprocessing               import Pool, Process
@@ -18,7 +19,7 @@ import os
 def busket_add(session, artikul, spp, balance=5000):
     wb_wh_list                  = [1733,507,3158,686,2737,117986,130744,122495,117393,1193,120762,121709]
     
-    url_for_artikul_info        = 'https://wbxcatalog-ru.wildberries.ru/nm-2-card/catalog?spp={}&regions=64,75,4,38,30,33,70,68,22,31,66,40,71,82,1,80,69,48&stores=119261,122252,122256,117673,122258,122259,121631,122466,122467,122495,122496,122498,122590,122591,122592,123816,123817,123818,123820,123821,123822,124093,124094,124095,124096,124097,124098,124099,124100,124101,124583,124584,125238,125239,125240,143772,6159,507,3158,117501,120602,6158,120762,121709,124731,2737,130744,117986,1733,686,132043&pricemarginCoeff=1.0&reg=1&appType=1&offlineBonus=0&onlineBonus=0&emp=0&locale=ru&lang=ru&curr=rub&couponsGeo=12,3,18,15,21&dest=-1292731,-226149,-102269,-1029256&nm={}'
+    url_for_artikul_info        = 'https://wildberries.ru/nm-2-card/catalog?spp={}&regions=64,75,4,38,30,33,70,68,22,31,66,40,71,82,1,80,69,48&stores=119261,122252,122256,117673,122258,122259,121631,122466,122467,122495,122496,122498,122590,122591,122592,123816,123817,123818,123820,123821,123822,124093,124094,124095,124096,124097,124098,124099,124100,124101,124583,124584,125238,125239,125240,143772,6159,507,3158,117501,120602,6158,120762,121709,124731,2737,130744,117986,1733,686,132043&pricemarginCoeff=1.0&reg=1&appType=1&offlineBonus=0&onlineBonus=0&emp=0&locale=ru&lang=ru&curr=rub&couponsGeo=12,3,18,15,21&dest=-1292731,-226149,-102269,-1029256&nm={}'
     artikul_info                = session.get(url_for_artikul_info.format(spp,artikul)).json()
     cod1S                       = str(artikul)
     characteristicId            = str(artikul_info['data']['products'][0]['sizes'][0]['optionId']) 
@@ -164,7 +165,7 @@ def start_artikuls_info(url, spp, count_of_pages=20):
 def test_buy(session, files, artikul, spp, headers, balance=5000):
     wb_wh_list                  = [1733,507,3158,686,2737,117986,130744,122495,117393,1193,120762,121709]
     
-    url_for_artikul_info        = 'https://wbxcatalog-ru.wildberries.ru/nm-2-card/catalog?spp={}&regions=64,75,4,38,30,33,70,68,22,31,66,40,71,82,1,80,69,48&stores=119261,122252,122256,117673,122258,122259,121631,122466,122467,122495,122496,122498,122590,122591,122592,123816,123817,123818,123820,123821,123822,124093,124094,124095,124096,124097,124098,124099,124100,124101,124583,124584,125238,125239,125240,143772,6159,507,3158,117501,120602,6158,120762,121709,124731,2737,130744,117986,1733,686,132043&pricemarginCoeff=1.0&reg=1&appType=1&offlineBonus=0&onlineBonus=0&emp=0&locale=ru&lang=ru&curr=rub&couponsGeo=12,3,18,15,21&dest=-1292731,-226149,-102269,-1029256&nm={}'
+    url_for_artikul_info        = 'https://wildberries.ru/nm-2-card/catalog?spp={}&regions=64,75,4,38,30,33,70,68,22,31,66,40,71,82,1,80,69,48&stores=119261,122252,122256,117673,122258,122259,121631,122466,122467,122495,122496,122498,122590,122591,122592,123816,123817,123818,123820,123821,123822,124093,124094,124095,124096,124097,124098,124099,124100,124101,124583,124584,125238,125239,125240,143772,6159,507,3158,117501,120602,6158,120762,121709,124731,2737,130744,117986,1733,686,132043&pricemarginCoeff=1.0&reg=1&appType=1&offlineBonus=0&onlineBonus=0&emp=0&locale=ru&lang=ru&curr=rub&couponsGeo=12,3,18,15,21&dest=-1292731,-226149,-102269,-1029256&nm={}'
     artikul_info                = session.get(url_for_artikul_info.format(spp,artikul)).json()
     cod1S                       = str(artikul)
     characteristicId            = str(artikul_info['data']['products'][0]['sizes'][0]['optionId']) 

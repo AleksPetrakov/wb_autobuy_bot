@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from logger                        import json_load, json_dump
 from db_connector                  import create_db, db_insert, do_commit, get_artikul_price, update_db, connect_db, update_db_price_history, update_db_same_price
 from concurrent.futures            import as_completed
@@ -259,7 +260,7 @@ def wb_parser():
 
 
 def subject_analytiks():
-    url_for_artikuls  = 'https://wbxcatalog-ru.wildberries.ru/nm-2-card/catalog?spp={}&regions=75,64,4,38,30,33,70,68,71,22,31,66,40,82,1,80,69,48&stores=117673,122258,122259,125238,125239,125240,6159,507,3158,117501,120602,6158,120762,121709,124731,2737,130744,117986,1733,686,132043&pricemarginCoeff=1.0&reg=1&appType=1&offlineBonus=0&onlineBonus=0&emp=0&locale=ru&lang=ru&curr=rub&couponsGeo=12,3,18,15,21&dest=-1029256,-102269,-226149,-1292731&nm={}'
+    url_for_artikuls  = 'https://wildberries.ru/nm-2-card/catalog?spp={}&regions=75,64,4,38,30,33,70,68,71,22,31,66,40,82,1,80,69,48&stores=117673,122258,122259,125238,125239,125240,6159,507,3158,117501,120602,6158,120762,121709,124731,2737,130744,117986,1733,686,132043&pricemarginCoeff=1.0&reg=1&appType=1&offlineBonus=0&onlineBonus=0&emp=0&locale=ru&lang=ru&curr=rub&couponsGeo=12,3,18,15,21&dest=-1029256,-102269,-226149,-1292731&nm={}'
     config            = json_load(r'../json/config.json')
     db_name           = config['db_name']
     min_price         = config['min_price']
